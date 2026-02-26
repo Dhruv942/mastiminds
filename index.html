@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#a8d8ff" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Pole Climb - Ascending Order</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Preload critical images - Pole Climb only -->
+    <link rel="preload" as="image" href="icon_home.png" />
+    <link rel="preload" as="image" href="icon_panjat.png" />
+    <link rel="preload" as="image" href="panjat_pinang/tiang.png" />
+    <link rel="preload" as="image" href="panjat_pinang/standleft.png" />
+    <link rel="preload" as="image" href="panjat_pinang/standright.png" />
+    <link rel="preload" as="image" href="panjat_pinang/climbleft.png" />
+    <link rel="preload" as="image" href="panjat_pinang/climbright.png" />
+  </head>
+  <body>
+    <!-- Fullscreen Button -->
+    <button
+      id="fullscreenBtn"
+      class="fullscreen-btn"
+      onclick="toggleFullscreen()"
+      title="Toggle Fullscreen"
+    >
+      <svg
+        class="fullscreen-icon expand"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+        ></path>
+      </svg>
+      <svg
+        class="fullscreen-icon collapse"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Home Button -->
+    <button
+      id="homeBtn"
+      class="home-btn"
+      onclick="backToGameTypeMenu()"
+      title="Main Menu"
+    >
+      <img src="icon_home.png" alt="Home" class="home-icon" />
+    </button>
+
+    <!-- Menu - Pole Climb Math only -->
+    <div id="gameTypeMenu" class="menu-screen">
+      <div class="menu-container">
+        <h1 class="menu-title">Pole Climb - Ascending Order</h1>
+        <p class="menu-subtitle">
+          Arrange numbers in ascending order to climb!
+        </p>
+        <div class="menu-buttons">
+          <button
+            class="menu-btn game-type-btn panjat-pinang"
+            onclick="selectGameType('panjat-pinang')"
+          >
+            <img src="icon_panjat.png" alt="Pole Climb" class="menu-icon" />
+            <span>Play</span>
+          </button>
+        </div>
+      </div>
+      <div class="copyright-footer">
+        <p>© AfifEdu 2025 | <span id="version-indicator">v2.0.0</span></p>
+        <p style="margin-top: 5px; font-size: 0.9em; opacity: 0.8">
+          Created By Herwin Hamid
+        </p>
+      </div>
+    </div>
+
+    <!-- Game Screen - Pole Climb Math -->
+    <div id="gameScreenPanjatPinang" class="game-container panjat-pinang-game">
+      <!-- Bagian Pemain Kiri -->
+      <div class="player-section left-player">
+        <div class="question-label">
+          Drag from top → drop below (smallest → largest)
+        </div>
+        <div class="drag-answer-area">
+          <div class="numbers-row" data-player="left">
+            <div class="number-box" draggable="true">7</div>
+            <div class="number-box" draggable="true">3</div>
+            <div class="number-box" draggable="true">9</div>
+            <div class="number-box" draggable="true">2</div>
+          </div>
+          <div class="slots-row" data-player="left">
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+          </div>
+        </div>
+        <div class="score-indicator">
+          Correct: <span class="score-value">0/7</span>
+        </div>
+      </div>
+
+      <!-- Bagian Tengah -->
+      <div class="center-section panjat-pinang-center">
+        <h1>Pole Climb - Ascending Order</h1>
+        <div class="game-field panjat-pinang-field">
+          <!-- Tiang Kiri -->
+          <div class="pole-container left-pole">
+            <img src="panjat_pinang/tiang.png" alt="Pole" class="pole-image" />
+            <div class="climber-container left-climber">
+              <img
+                src="panjat_pinang/standleft.png"
+                alt="Left Player"
+                class="climber-image stand"
+              />
+              <img
+                src="panjat_pinang/climbleft.png"
+                alt="Left Player Climbing"
+                class="climber-image climb"
+                style="display: none"
+              />
+            </div>
+          </div>
+
+          <!-- Tiang Kanan -->
+          <div class="pole-container right-pole">
+            <img src="public/tiang.png" alt="Pole" class="pole-image" />
+            <div class="climber-container right-climber">
+              <img
+                src="panjat_pinang/standright.png"
+                alt="Right Player"
+                class="climber-image stand"
+              />
+              <img
+                src="panjat_pinang/climbright.png"
+                alt="Right Player Climbing"
+                class="climber-image climb"
+                style="display: none"
+              />
+            </div>
+          </div>
+        </div>
+        <p class="instruction">
+          Arrange numbers in ascending order! (7 correct to win)
+        </p>
+      </div>
+
+      <!-- Bagian Pemain Kanan -->
+      <div class="player-section right-player">
+        <div class="question-label">
+          Drag from top → drop below (smallest → largest)
+        </div>
+        <div class="drag-answer-area">
+          <div class="numbers-row" data-player="right">
+            <div class="number-box" draggable="true">7</div>
+            <div class="number-box" draggable="true">3</div>
+            <div class="number-box" draggable="true">9</div>
+            <div class="number-box" draggable="true">2</div>
+          </div>
+          <div class="slots-row" data-player="right">
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+            <div class="drop-slot"></div>
+          </div>
+        </div>
+        <div class="score-indicator">
+          Correct: <span class="score-value">0/7</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winner Modal -->
+    <div id="winnerModal" class="modal">
+      <div class="modal-content">
+        <h2 id="winnerText">🎉 Player Wins! 🎉</h2>
+        <p id="winnerMessage">
+          Congratulations! You reached the top of the pole!
+        </p>
+        <button class="play-again-btn" onclick="closeModal()">
+          Play Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Countdown Overlay -->
+    <div id="countdownOverlay" class="countdown-overlay">
+      <div class="countdown-content">
+        <div id="countdownNumber" class="countdown-number">3</div>
+        <div id="countdownText" class="countdown-text">Get Ready...</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Register Service Worker for Caching & Auto-Update -->
+    <script>
+      // ============================================
+      // SERVICE WORKER REGISTRATION & AUTO-UPDATE
+      // ============================================
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registration) => {
+              console.log(
+                "✅ Service Worker registered successfully:",
+                registration.scope,
+              );
+
+              // Cek update setiap 60 detik ketika tab aktif
+              setInterval(() => {
+                if (document.visibilityState === "visible") {
+                  registration.update().then(() => {
+                    console.log("🔄 Checked for updates");
+                  });
+                }
+              }, 60000); // 60 detik
+
+              // Listener untuk service worker baru yang waiting
+              registration.addEventListener("updatefound", () => {
+                const newWorker = registration.installing;
+
+                newWorker.addEventListener("statechange", () => {
+                  if (
+                    newWorker.state === "installed" &&
+                    navigator.serviceWorker.controller
+                  ) {
+                    // Ada update baru - otomatis reload tanpa notifikasi
+                    console.log(
+                      "🆕 Update available! Auto-reloading in 2 seconds...",
+                    );
+                    setTimeout(() => {
+                      window.location.reload(true);
+                    }, 2000);
+                  }
+                });
+              });
+            })
+            .catch((error) => {
+              console.error("❌ Service Worker registration failed:", error);
+            });
+
+          // Listen untuk message dari Service Worker
+          navigator.serviceWorker.addEventListener("message", (event) => {
+            if (event.data && event.data.type === "CACHE_UPDATED") {
+              console.log("📦 Cache updated:", event.data.version);
+              console.log("💬 Message:", event.data.message);
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
