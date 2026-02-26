@@ -206,7 +206,7 @@ export default function SpaceWarPage() {
     { number: "3", text: "Red vs Blue...", isStart: false },
     { number: "2", text: "Ready Ships...", isStart: false },
     { number: "1", text: "Engage!", isStart: false },
-    { number: "Go!", text: "Space War!", isStart: true },
+    { number: "Go!", text: "Number Strike!", isStart: true },
   ];
 
   useEffect(() => {
@@ -312,8 +312,8 @@ export default function SpaceWarPage() {
         <div className="menu-screen" style={{ display: "flex" }}>
           <div className="menu-container">
             <Link href="/play" className="back-home-link">← Back to Games</Link>
-            <h1 className="menu-title">Space War</h1>
-            <p className="menu-subtitle">2 Players! Red vs Blue. Answer questions to fire missiles and destroy enemy ship! 5 lives each.</p>
+            <h1 className="menu-title">Number Strike</h1>
+            <p className="menu-subtitle">2 Players! Red vs Blue. Answer questions to fire missiles and destroy enemy ship. 5 lives each.</p>
             <div className="menu-buttons">
               <button className="menu-btn game-type-btn" onClick={selectGameType}>
                 <span style={{ fontSize: "2rem", marginRight: "8px" }}>🚀</span>
@@ -335,17 +335,17 @@ export default function SpaceWarPage() {
               <h3>RED</h3>
               <div className="lives-row">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className={`life ${i <= redLives ? "active" : "lost"}`}>❤️</span>
+                  <span key={i} className={`life ${i <= redLives ? "active" : "lost"}`}>🍎</span>
                 ))}
               </div>
               <span className="score-label">Score: {redScore}</span>
             </div>
-            <h1 className="spacewar-title">SPACE WAR</h1>
+            <h1 className="spacewar-title">NUMBER STRIKE</h1>
             <div className="spacewar-lives blue">
               <h3>BLUE</h3>
               <div className="lives-row">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className={`life ${i <= blueLives ? "active" : "lost"}`}>💙</span>
+                  <span key={i} className={`life ${i <= blueLives ? "active" : "lost"}`}>🍏</span>
                 ))}
               </div>
               <span className="score-label">Score: {blueScore}</span>
@@ -402,12 +402,16 @@ export default function SpaceWarPage() {
 
       <div className={`countdown-overlay ${showCountdown ? "show" : ""}`}>
         <div className="countdown-content">
-          <div className={`countdown-number ${countdownSequence[countdownIndex]?.isStart ? "start" : ""}`}>
-            {countdownSequence[countdownIndex]?.number ?? "3"}
-          </div>
-          <div className={`countdown-text ${countdownSequence[countdownIndex]?.isStart ? "start" : ""}`}>
-            {countdownSequence[countdownIndex]?.text ?? "Red vs Blue..."}
-          </div>
+          {countdownSequence[countdownIndex] && (
+            <>
+              <div className={`countdown-number ${countdownSequence[countdownIndex]?.isStart ? "start" : ""}`}>
+                {countdownSequence[countdownIndex].number}
+              </div>
+              <div className={`countdown-text ${countdownSequence[countdownIndex]?.isStart ? "start" : ""}`}>
+                {countdownSequence[countdownIndex].text}
+              </div>
+            </>
+          )}
         </div>
       </div>
 

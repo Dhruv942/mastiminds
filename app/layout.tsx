@@ -3,7 +3,7 @@ import "../styles.css";
 
 export const metadata: Metadata = {
   title: "MastiMinds",
-  description: "MastiMinds Games - Pole Ascending Order, Space War, Raffle Fight. Created by dp. Contact: 8320838017",
+  description: "MastiMinds Games - Number Strike. Created by dp. Contact: 8320838017",
 };
 
 export const viewport: Viewport = {

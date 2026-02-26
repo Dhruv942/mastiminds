@@ -3,9 +3,7 @@
 import Link from "next/link";
 
 const GAMES = [
-  { id: "pole-climb", name: "Pole Ascending Order", href: "/games/pole-climb", icon: "🧗", desc: "Arrange numbers in ascending order to climb!", available: true },
-  { id: "space-war", name: "Space War", href: "/games/space-war", icon: "🚀", desc: "2 Players! Red vs Blue. Answer to fire missiles, 5 lives!", available: true },
-  { id: "raffle-fight", name: "Raffle Fight", href: "/games/raffle-fight", icon: "🎲", desc: "Battle in the raffle arena!", available: true },
+  { id: "space-war", name: "Number Strike", href: "/games/space-war", icon: "🚀", desc: "2 Players! Red vs Blue. Answer to fire missiles, 5 lives!", available: true },
 ];
 
 export default function PlayPage() {
