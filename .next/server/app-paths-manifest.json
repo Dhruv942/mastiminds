@@ -2,7 +2,7 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/play/page": "app/play/page.js",
+  "/games/space-war/page": "app/games/space-war/page.js",
   "/games/pole-climb/page": "app/games/pole-climb/page.js",
-  "/games/save-your-kingdom/page": "app/games/save-your-kingdom/page.js",
-  "/games/space-war/page": "app/games/space-war/page.js"
+  "/games/save-your-kingdom/page": "app/games/save-your-kingdom/page.js"
 }

@@ -743,9 +743,11 @@ body.fullscreen .fullscreen-icon.collapse {
 /* Home Features - NEP 2020, Activity-Based, etc. */
 .home-features {
   margin-top: clamp(32px, 5vh, 48px);
-  text-align: left;
+  text-align: center;
   width: 100%;
   max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-features-title {
