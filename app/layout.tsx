@@ -29,17 +29,8 @@ export default function RootLayout({
         />
         <meta name="format-detection" content="telephone=no" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="preload" as="image" href="/icon_home.png" />
-        <link rel="preload" as="image" href="/icon_panjat.png" />
-        <link rel="preload" as="image" href="/tiang.png" />
-        <link rel="preload" as="image" href="/standleft.png" />
-        <link rel="preload" as="image" href="/standright.png" />
-        <link rel="preload" as="image" href="/climbleft.png" />
-        <link rel="preload" as="image" href="/climbright.png" />
-        <link rel="preload" as="image" href="/king.png" />
-        <link rel="preload" as="image" href="/villain.png" />
-        <link rel="preload" as="image" href="/space_red.png" />
-        <link rel="preload" as="image" href="/space_blue.png" />
+        <link rel="preload" as="image" href="/api/asset/space_red" />
+        <link rel="preload" as="image" href="/api/asset/space_blue" />
       </head>
       <body>{children}</body>
     </html>

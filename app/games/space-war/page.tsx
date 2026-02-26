@@ -305,7 +305,8 @@ export default function SpaceWarPage() {
       </button>
 
       <Link href="/play" className="home-btn" title="Back to Games" style={homeBtnStyle}>
-        <img src="/icon_home.png" alt="Home" className="home-icon" />
+        <img src="/api/asset/icon_home" alt="Home" className="home-icon" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.nextElementSibling as HTMLElement)?.classList.remove("hidden"); }} />
+        <span className="home-icon-fallback hidden" style={{ fontSize: "1.5rem", fontWeight: 700 }}>Home</span>
       </Link>
 
       {showMenu && (
@@ -354,22 +355,22 @@ export default function SpaceWarPage() {
 
           <div className="spacewar-arena" ref={arenaRef}>
             <div className="spacewar-ship red-ship">
-              <img src="/space_red.png" alt="Red Ship" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".ship-fallback")?.classList.remove("hidden"); }} />
+              <img src="/api/asset/space_red" alt="Red Ship" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".ship-fallback")?.classList.remove("hidden"); }} />
               <span className="ship-fallback hidden" style={{ fontSize: "4rem" }}>🚀</span>
             </div>
             <div className="spacewar-ship blue-ship">
-              <img src="/space_blue.png" alt="Blue Ship" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".ship-fallback")?.classList.remove("hidden"); }} />
+              <img src="/api/asset/space_blue" alt="Blue Ship" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".ship-fallback")?.classList.remove("hidden"); }} />
               <span className="ship-fallback hidden" style={{ fontSize: "4rem" }}>🚀</span>
             </div>
             {missiles.map((m) => (
               <div key={m.id} className={`spacewar-missile ${m.shooter}-missile`}>
-                <img src={m.shooter === "red" ? "/missile_red.png" : "/missile_blue.png"} alt="Missile" className={`missile-img ${m.shooter === "blue" ? "missile-flip" : ""}`} onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".missile-fallback")?.classList.remove("hidden"); }} />
+                <img src={m.shooter === "red" ? "/api/asset/missile_red" : "/api/asset/missile_blue"} alt="Missile" className={`missile-img ${m.shooter === "blue" ? "missile-flip" : ""}`} onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".missile-fallback")?.classList.remove("hidden"); }} />
                 <span className="missile-fallback hidden">💥</span>
               </div>
             ))}
             {explosion.show && explosion.target && (
               <div className={`spacewar-explosion ${explosion.target}-explosion`}>
-                <img src="/explode.png" alt="Explosion" className="explosion-img" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".explosion-fallback")?.classList.remove("hidden"); }} />
+                <img src="/api/asset/explode" alt="Explosion" className="explosion-img" onError={(e) => { e.currentTarget.style.display = "none"; (e.currentTarget.parentNode as HTMLElement)?.querySelector(".explosion-fallback")?.classList.remove("hidden"); }} />
                 <span className="explosion-fallback hidden">💥</span>
               </div>
             )}

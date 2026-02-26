@@ -4,5 +4,6 @@
   "/play/page": "app/play/page.js",
   "/games/pole-climb/page": "app/games/pole-climb/page.js",
   "/games/save-your-kingdom/page": "app/games/save-your-kingdom/page.js",
-  "/games/space-war/page": "app/games/space-war/page.js"
+  "/games/space-war/page": "app/games/space-war/page.js",
+  "/api/asset/[name]/route": "app/api/asset/[name]/route.js"
 }
