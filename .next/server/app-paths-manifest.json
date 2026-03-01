@@ -1,9 +1,7 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
+  "/api/asset/[name]/route": "app/api/asset/[name]/route.js",
   "/play/page": "app/play/page.js",
-  "/games/pole-climb/page": "app/games/pole-climb/page.js",
-  "/games/save-your-kingdom/page": "app/games/save-your-kingdom/page.js",
-  "/games/space-war/page": "app/games/space-war/page.js",
-  "/api/asset/[name]/route": "app/api/asset/[name]/route.js"
+  "/games/math-battle/page": "app/games/math-battle/page.js"
 }

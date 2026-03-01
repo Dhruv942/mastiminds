@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const GAMES = [
   { id: "space-war", name: "Number Strike", href: "/games/space-war", icon: "🚀", desc: "2 Players! Red vs Blue. Answer to fire missiles, 5 lives!", available: true },
+  { id: "math-battle", name: "Math Battle", href: "/games/math-battle", icon: "🧟", desc: "1 or 2 Players! Shoot zombies by solving math problems. Addition, subtraction, multiplication, division!", available: true },
 ];
 
 export default function PlayPage() {
